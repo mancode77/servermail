@@ -1,0 +1,15 @@
+{
+  "name": "servermail",
+  "version": "1.0.0",
+  "description": "Membuat aplikasi kirim pesan email melalui server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aji Maulana",
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^6.7.0",
+    "nodemailer-express-handlebars": "^4.0.0"
+  }
+}
