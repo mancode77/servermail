@@ -2,7 +2,7 @@ const hbs = require('nodemailer-express-handlebars')
 const nodemailer = require('nodemailer')
 const path = require('path')
 
-// initialize nodemailer
+// inisialisasi nodemailer 
 const transporter = nodemailer.createTransport(
     {
         service: 'gmail',
@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport(
     }
 );
 
-// point to the template folder
+// arahkan ke folder template
 const handlebarOptions = {
     viewEngine: {
         partialsDir: path.resolve('./views/'),
@@ -22,22 +22,22 @@ const handlebarOptions = {
     viewPath: path.resolve('./views/'),
 };
 
-// use a template file with nodemailer
+// gunakan file template dengan nodemailer 
 transporter.use('compile', hbs(handlebarOptions))
 
 
 const mailOptions = {
-    from: '"your email name" <your_email@gmail,com>', // sender address
-    to: 'receiver_email700@gmail.com', // list of receivers
-    subject: 'Coba aplikasi server kirim email',
-    template: 'email', // the name of the template file i.e email.handlebars
+    from: '"your email name" <your_email@gmail,com>', // alamat pengirim
+    to: 'receiver_email@gmail.com', // daftar penerima
+    subject: 'your subject',
+    template: 'email', // nama file template yaitu email.handbars
     context:{
-        name: "Bang", // replace {{name}} with Adebola
-        content: 'Bang!' // replace {{company}} with My Company
+        name: "your name", //  ganti {{name}} sesuai nama anda
+        content: 'your content' //  ganti {{perusahaan}} sesuai content
     }
 };
 
-// trigger the sending of the E-mail
+// memicu pengiriman E-mail 
 transporter.sendMail(mailOptions, function(error, info){
     if(error){
         return console.log(error);
